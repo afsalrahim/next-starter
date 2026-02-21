@@ -1,6 +1,13 @@
-export function DashboardView() {
+import { WelcomeModal } from "@/components/dashboard/welcome-modal";
+
+interface DashboardViewProps {
+    onboardingComplete: boolean;
+}
+
+export function DashboardView({ onboardingComplete }: DashboardViewProps) {
     return (
         <div className="flex min-h-screen items-center justify-center p-8">
+            {!onboardingComplete && <WelcomeModal isOpen={true} />}
             <div className="max-w-2xl w-full space-y-4 text-center">
                 <h1 className="text-4xl font-bold tracking-tight text-foreground">User Dashboard</h1>
                 <p className="text-lg text-muted-foreground">
